@@ -1,7 +1,6 @@
 function solicitudAJAX(params) {
   var url = "https://pokeapi.co/api/v2/pokemon?limit=905";
   let tarjetas = document.querySelector("#nPokemon");
-
   var objXMLHttpRequest = new XMLHttpRequest();
 
   objXMLHttpRequest.onreadystatechange = function () {
@@ -21,13 +20,11 @@ function solicitudAJAX(params) {
 
 function buscar() {
   let tarjetas = document.querySelector("#ConteinerCard");
-  var data = document.querySelector("#nPokemon").data;
-  var busqueda = document.querySelector("#nPokemon").value - 1;
-  var url = data.results[busqueda].url;
-  console.log(data);
-  console.log(tarjetas);
-
-  if (busqueda >= 0) {
+  var busqueda = document.querySelector("#nPokemon").value;
+  
+  if (busqueda > 0) {
+    var data = document.querySelector("#nPokemon").data;
+  var url = data.results[busqueda-1].url;
     var objXMLHttpRequest = new XMLHttpRequest();
 
     objXMLHttpRequest.onreadystatechange = function () {
@@ -38,7 +35,7 @@ function buscar() {
           let uriImg = json.sprites.other.home.front_default;
           console.log(json);
           let html =
-            `<div class="card" style="width: 18rem;">
+            `<div class="card" style="width: 18rem; background-color: rgba(255, 255, 255, 0); border: none;">
     <img src="` +
             uriImg +
             `" class="card-img-top" alt="...">
@@ -52,31 +49,28 @@ function buscar() {
           tarjetas.innerHTML = html;
         }
 
-        else {
-          alert("Error Code: " + objXMLHttpRequest.status);
-          alert("Error Message: " + objXMLHttpRequest.statusText);
-        }
+ 
       }
     };
     objXMLHttpRequest.open("GET", url);
     objXMLHttpRequest.send();
   }
-  else if (busqueda >= 0) {
-    let nombre0 = json.name;
-    let uriImg0 = json.sprites.other.home.front_default;
-    console.log(json);
-    let html =
-        `<div class="card" style="width: 18rem;">
+
+  if (busqueda <= 0) {
+
+    let html1 =
+    `<div class="card" style="width: 18rem; background-color: rgba(255, 255, 255, 0); border: none;">
     <img src="` +
-          uriImg0 +
-          `" class="card-img-top" alt="...">
+    "../img/MissingNO.png" +
+            `" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">` +
-          nombre0 +
-          `</h5>
+            "MissingNO." +
+            `</h5>
       <p class="card-text"></p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
     </div>
   </div>`;
+  tarjetas.innerHTML = html1;
   }
+
 }
