@@ -58,14 +58,18 @@ function buscar() {
 
   if (busqueda <= 0) {
 
+    function getRandomInt(max) {
+      return Math.floor(Math.random() * max);
+    }
+
     let html1 =
     `<div class="card" style="width: 18rem; background-color: rgba(255, 255, 255, 0); border: none;">
     <img src="` +
-    "../img/MissingNO.png" +
+    "../img/MissingNO" + getRandomInt(14) + ".png" +
             `" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">` +
-            "MissingNO." +
+            "Missing Number" +
             `</h5>
       <p class="card-text"></p>
     </div>
