@@ -21,10 +21,10 @@ function solicitudAJAX(params) {
 function buscar() {
   let tarjetas = document.querySelector("#ConteinerCard");
   var busqueda = document.querySelector("#nPokemon").value;
-  
+
   if (busqueda > 0) {
     var data = document.querySelector("#nPokemon").data;
-  var url = data.results[busqueda-1].url;
+    var url = data.results[busqueda - 1].url;
     var objXMLHttpRequest = new XMLHttpRequest();
 
     objXMLHttpRequest.onreadystatechange = function () {
@@ -34,6 +34,14 @@ function buscar() {
           let nombre = json.name;
           let uriImg = json.sprites.other.home.front_default;
           console.log(json);
+          
+          let tipo1 = json.types[0].type.name;
+          let tipo2 = undefined;
+          if(json.types[1] != undefined){
+            tipo2 = json.types[1].type.name;
+          }
+          console.log(tipo1);
+          console.log(tipo2);
           let html =
             `<div class="card" style="width: 18rem; background-color: rgba(255, 255, 255, 0); border: none;">
     <img src="` +
@@ -42,14 +50,19 @@ function buscar() {
     <div class="card-body">
       <h5 class="card-title">` +
             nombre +
-            `</h5>
+            `</h5>`
+            +
+            `<img src="../img/`+ tipo1 +`.png"
+             class="card-img-top" alt="...">
+            <img src="../img/` + tipo2 + `.png"
+            class="card-img-top" alt="...">
       <p class="card-text"></p>
     </div>
   </div>`;
           tarjetas.innerHTML = html;
         }
 
- 
+
       }
     };
     objXMLHttpRequest.open("GET", url);
@@ -63,18 +76,18 @@ function buscar() {
     }
 
     let html1 =
-    `<div class="card" style="width: 18rem; background-color: rgba(255, 255, 255, 0); border: none;">
+      `<div class="card" style="width: 18rem; background-color: rgba(255, 255, 255, 0); border: none;">
     <img src="` +
-    "../img/MissingNO" + getRandomInt(14) + ".png" +
-            `" class="card-img-top" alt="...">
+      "../img/MissingNO" + getRandomInt(14) + ".png" +
+      `" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">` +
-            "Missing Number" +
-            `</h5>
+      "Missing Number" +
+      `</h5>
       <p class="card-text"></p>
     </div>
   </div>`;
-  tarjetas.innerHTML = html1;
+    tarjetas.innerHTML = html1;
   }
 
 }
