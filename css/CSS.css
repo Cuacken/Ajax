@@ -34,6 +34,15 @@ body {
   width: 4.3%;
 }
 
+#btnrandom{
+  color: rgba(240, 248, 255, 0);
+  border: rgba(255, 255, 255, 0);
+  position: fixed;
+  bottom: 28%;
+  left:35.2%;
+  width: 4.3%;
+}
+
 #pokemon{
   width: 10%;
   position:fixed;
