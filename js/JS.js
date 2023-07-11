@@ -32,15 +32,15 @@ function buscar() {
     let html2 =
       `<div class="card" style="width: 18rem; background-color: rgba(255, 255, 255, 0); border: none;">
     <img src="` +
-      "../img/MissingNO" + getRandomInt(14) + ".png" +
-      `" class="card-img-top" alt="...">
+      "../img/MissingNO" + getRandomInt(8) + ".png" +
+      `" class="card-img-top" alt="..." id="pokemon">
     <div class="card-body">
-      <h5 class="card-title">` +
-      "Missing Number" +
+      <h5 class="card-title" id="nombre2">` +
+      "Missing" + `<br>` + " Number" +
       `</h5>
       <p class="card-text"></p>
       <img src="../img/unknown.png"
-      class="card-img-top" alt="...">
+      class="card-img-top" alt="..." id="tipo1">
 <p class="card-text"></p>
 </div>
 </div>`;
@@ -69,16 +69,16 @@ function buscar() {
             `<div class="card" style="width: 18rem; background-color: rgba(255, 255, 255, 0); border: none;">
     <img src="` +
             uriImg +
-            `" class="card-img-top" alt="...">
+            `" class="card-img-top" alt="..." id="pokemon">
     <div class="card-body">
-      <h5 class="card-title">` +
+      <h5 class="card-title" id="nombre1">` +
             nombre[0].toUpperCase() + nombre.substring(1) +
             `</h5>`
             +
             `<img src="../img/`+ tipo1 +`.png"
-             class="card-img-top" alt="...">
+             class="card-img-top" alt="..." id="tipo1">
             <img src="../img/` + tipo2 + `.png"
-            class="card-img-top" alt="...">
+            class="card-img-top" alt="..." id="tipo2">
       <p class="card-text"></p>
     </div>
   </div>`;

@@ -12,11 +12,10 @@
   </head>
 
   <body onload="solicitudAJAX()">
-    <img src="../img/pokedexC.png" id="pokedexC" style="size-adjust: 1px;">
+    <img src="../img/pokedexA.png" id="pokedexA">
     <div class="container">
-      <label for="nPokemon">
-      <input type="number" id="nPokemon" placeholder="Ingresar ID" data=""/>
-      <button class="btn btn-outline-light" onclick="buscar()">Buscar</button>
+      <input type="number" id="nPokemon" placeholder="Ingresar ID" data="" class="buscador"/>
+      <button class="btn btn-outline-danger" onclick="buscar()" id="btnbuscar">a</button>
     </div>
     <div id="ConteinerCard"></div>
     <script src="../js/JS.js"></script>
